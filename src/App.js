@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import Counter from './Components/Counter';
+import Button from './Components/Button';
 import './App.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
   console.log('App');
+
   return (
     <div className="App">
-      <button type="button" onClick={() => setCount(count - 1)}>
-        DECREMENT
-      </button>
+      <Button onSubmit={decrement} text="DECREMRNT" />
       <Counter count={count} />
-      <button type="button" onClick={() => setCount(count + 1)}>
-        INCREMENT
-      </button>
+      <Button onSubmit={increment} text="INCREMRNT" />
     </div>
   );
 };
