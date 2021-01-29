@@ -59,6 +59,9 @@
       }
     ],
     "no-console": "off",
+    "react/destructuring-assignment": [
+      0
+    ],
     "no-unused-vars": [
       "error",
       {
