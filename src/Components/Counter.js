@@ -11,7 +11,7 @@ const Counter = (props) => {
 };
 
 Counter.propTypes = {
-  count: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default Counter;
