@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import Counter from './Components/Counter';
 import './App.css';
@@ -9,9 +7,13 @@ const App = () => {
   console.log('App');
   return (
     <div className="App">
-      <button onClick={() => setCount(count - 1)}>DECREMENT</button>
+      <button type="button" onClick={() => setCount(count - 1)}>
+        DECREMENT
+      </button>
       <Counter count={count} />
-      <button onClick={() => setCount(count + 1)}>INCREMENT</button>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        INCREMENT
+      </button>
     </div>
   );
 };
