@@ -11,9 +11,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Button onSubmit={decrement} text="DECREMRNT" />
+      <Button onSubmit={decrement} text="DECREMENT" />
       <Counter count={count} />
-      <Button onSubmit={increment} text="INCREMRNT" />
+      <Button onSubmit={increment} text="INCREMENT" />
     </div>
   );
 };
