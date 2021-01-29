@@ -6,7 +6,7 @@ import './App.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
-  console.log({ count });
+  console.log('App');
   return (
     <div className="App">
       <button onClick={() => setCount(count - 1)}>DECREMENT</button>

@@ -4,6 +4,7 @@
 import React from 'react';
 
 const Counter = (props) => {
+  console.log('Counter');
   return (
     <div className="counter">
       <p>{props.count}</p>
