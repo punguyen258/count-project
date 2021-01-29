@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
-import Counter from './Counter';
+import Counter from './Components/Counter';
 import './App.css';
 
 const App = () => {
