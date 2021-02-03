@@ -1,15 +1,13 @@
 import { useRef, useEffect } from 'react';
 
 const countRender = () => {
-  const counter = useRef(0);
+  const counter = useRef(1);
 
   useEffect(() => {
     counter.current += 1;
   });
 
-  console.log(`Count render : ${counter.current}`);
-
-  return { counter: counter.current };
+  return counter.current;
 };
 
 export default countRender;

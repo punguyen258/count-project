@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useCount from '../hooks/countRender';
 
 const Button = (props) => {
-  console.log('Button');
+  const { count, setCount } = props;
+  const counter = useCount();
+  console.log(`Button render lai ${counter}`);
+
   return (
     <div className="counter">
-      <button type="button" onClick={props.onSubmit}>
-        {props.text}
+      <button type="button" onClick={() => setCount(count - 1)}>
+        decrement
+      </button>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        increment
       </button>
     </div>
   );
 };
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
+  setCount: PropTypes.func.isRequired,
 };
 
 export default Button;

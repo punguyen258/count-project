@@ -7,18 +7,14 @@ import './App.css';
 const App = () => {
   const counter = useCount();
   const [count, setCount] = useState(0);
-  const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
-  console.log('App');
+  console.log(`App render lai ${counter}`);
 
   return (
     <div className="App">
       <div className="d-flex">
-        <Button onSubmit={decrement} text="DECREMENT" />
+        <Button setCount={setCount} count={count} />
         <Counter count={count} />
-        <Button onSubmit={increment} text="INCREMENT" />
       </div>
-      <h2>{`Số lần component render : ${counter.counter} `}</h2>
     </div>
   );
 };

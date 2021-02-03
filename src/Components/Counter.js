@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useCount from '../hooks/countRender';
 
 const Counter = (props) => {
-  console.log('Counter');
+  const counter = useCount();
+  console.log(`Counter render lai ${counter}`);
+
   return (
     <div className="counter">
       <p>{props.count}</p>
