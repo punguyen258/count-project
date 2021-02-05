@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Counter from './Components/Counter';
 import Button from './Components/Button';
 import useCount from './hooks/countRender';
-import './App.css';
 
 const App = () => {
   const counter = useCount();
   const [count, setCount] = useState(0);
+  const decrement = useCallback(() => setCount((count) => count - 1), [
+    setCount,
+  ]);
+  const increment = useCallback(() => setCount((count) => count + 1), [
+    setCount,
+  ]);
   console.log(`App render lai ${counter}`);
 
   return (
     <div className="App">
       <div className="d-flex">
-        <Button setCount={setCount} count={count} />
+        <Button handleDecrement={decrement} handleIncrement={increment} />
         <Counter count={count} />
       </div>
     </div>

@@ -16,6 +16,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "no-shadow": "off",
     "prettier/prettier": [
       "error",
       {

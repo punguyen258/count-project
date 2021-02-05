@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import useCount from '../hooks/countRender';
 
 const Button = (props) => {
-  const { count, setCount } = props;
   const counter = useCount();
-  console.log(`Button render lai ${counter}`);
 
+  console.log(`Button render lai ${counter}`);
   return (
     <div className="counter">
-      <button type="button" onClick={() => setCount(count - 1)}>
+      <button type="button" onClick={props.handleDecrement}>
         decrement
       </button>
-      <button type="button" onClick={() => setCount(count + 1)}>
+      <button type="button" onClick={props.handleIncrement}>
         increment
       </button>
     </div>
@@ -20,8 +19,8 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  count: PropTypes.number.isRequired,
-  setCount: PropTypes.func.isRequired,
+  handleDecrement: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func.isRequired,
 };
 
-export default Button;
+export default memo(Button);
