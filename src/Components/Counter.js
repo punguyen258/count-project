@@ -1,20 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import useCount from '../hooks/countRender';
+import React, { useContext } from 'react';
 
-const Counter = (props) => {
+import useCount from '../hooks/countRender';
+import AppContext from '../contexts/AppContext';
+
+const Counter = () => {
   const counter = useCount();
   console.log(`Counter render lai ${counter}`);
+  const context = useContext(AppContext);
 
-  return (
-    <div className="counter">
-      <p>{props.count}</p>
-    </div>
-  );
-};
-
-Counter.propTypes = {
-  count: PropTypes.number.isRequired,
+  return <div className="counter">{context.count}</div>;
 };
 
 export default Counter;

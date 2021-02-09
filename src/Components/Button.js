@@ -1,26 +1,23 @@
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import useCount from '../hooks/countRender';
+import React, { useContext, memo } from 'react';
 
-const Button = (props) => {
+import useCount from '../hooks/countRender';
+import AppContext from '../contexts/AppContext';
+
+const Button = () => {
   const counter = useCount();
+  const context = useContext(AppContext);
 
   console.log(`Button render lai ${counter}`);
   return (
     <div className="counter">
-      <button type="button" onClick={props.handleDecrement}>
+      <button type="button" onClick={context.handleDecrement}>
         decrement
       </button>
-      <button type="button" onClick={props.handleIncrement}>
+      <button type="button" onClick={context.handleIncrement}>
         increment
       </button>
     </div>
   );
-};
-
-Button.propTypes = {
-  handleDecrement: PropTypes.func.isRequired,
-  handleIncrement: PropTypes.func.isRequired,
 };
 
 export default memo(Button);

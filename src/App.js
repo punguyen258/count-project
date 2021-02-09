@@ -1,24 +1,30 @@
 import React, { useState, useCallback } from 'react';
-import Counter from './Components/Counter';
-import Button from './Components/Button';
+
 import useCount from './hooks/countRender';
+import AppContext from './contexts/AppContext';
+import Button from './components/Button';
+import Counter from './components/Counter';
 
 const App = () => {
   const counter = useCount();
   const [count, setCount] = useState(0);
-  const decrement = useCallback(() => setCount((count) => count - 1), [
-    setCount,
-  ]);
-  const increment = useCallback(() => setCount((count) => count + 1), [
-    setCount,
-  ]);
+  const decrement = useCallback(() => setCount((count) => count - 1), []);
+  const increment = useCallback(() => setCount((count) => count + 1), []);
   console.log(`App render lai ${counter}`);
 
   return (
     <div className="App">
       <div className="d-flex">
-        <Button handleDecrement={decrement} handleIncrement={increment} />
-        <Counter count={count} />
+        <AppContext.Provider
+          value={{
+            count,
+            handleDecrement: decrement,
+            handleIncrement: increment,
+          }}
+        >
+          <Button />
+          <Counter />
+        </AppContext.Provider>
       </div>
     </div>
   );
